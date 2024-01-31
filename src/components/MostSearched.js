@@ -1,25 +1,25 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const Dashboard = () => {
-  const [topGainers, setTopGainers] = useState([]);
+const MostSearched = () => {
+  const [topSearchers, setTopSearchers] = useState([]);
 
   useEffect(() => {
-    const fetchTopGainers = async () => {
+    const fetchTopSearchers = async () => {
       try {
-        const response = await axios.get('/api/crypto');
-        setTopGainers(response.data.data);
+        const response = await axios.get('/api/search');
+        setTopSearchers(response.data.data);
       } catch (error) {
-        console.error('Error fetching top gainers:', error);
+        console.error('Error fetching top searched:', error);
       }
     };
 
-    fetchTopGainers();
+    fetchTopSearchers();
   }, []);
 
   return (
     <>
-    top gainers
+    top searched
     <div className="px-4 sm:px-6 lg:px-8 border-2 justify-center m-auto flex max-w-[1200px] py-4 rounded-2xl shadow-lg">
       <div className="sm:flex sm:items-center">
       </div>
@@ -50,7 +50,7 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-blue-800 bg-white">
-                {topGainers.map((coin) => (
+                {topSearchers.map((coin) => (
                   <tr key={coin.id}>
                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-0">
                       <div className="flex items-center">
@@ -84,4 +84,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default MostSearched;

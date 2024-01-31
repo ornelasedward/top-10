@@ -2,23 +2,18 @@
 import axios from 'axios';
 
 export default async function handler(req, res) {
-  const apiKey = process.env.COINMARKETCAP_API_KEY;
+  const apiKey = process.env.COINMARKETCAP_API_KEY; // Ensure you're using the correct environment variable name
 
-  const url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/gainers-losers';
+  const url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/latest';
 
   try {
-    // Include params in the request to the CoinMarketCap API
     const response = await axios.get(url, {
       headers: {
         'X-CMC_PRO_API_KEY': apiKey,
       },
       params: {
-        time_period: '24h',
         limit: 10,
-        start: 1,
-        sort: 'percent_change_24h',
-        sort_dir: 'desc'
-      }
+      },
     });
 
     // Send back the data received from CoinMarketCap API to the client
