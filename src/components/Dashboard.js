@@ -39,7 +39,7 @@ const Dashboard = () => {
                     Price
                   </th>
                   <th scope="col" className="px-3 py-2 text-left text-xl font-semibold text-gray-900 bg-amber-400">
-                  Circulating Supply
+                  Total Supply
                 </th>
                   <th scope="col" className="px-3 py-2 text-left text-xl font-semibold text-gray-900 bg-amber-400">
                   Volume (24h)
@@ -62,7 +62,7 @@ const Dashboard = () => {
                     <td className="whitespace-nowrap px-3 py-2 text-xl text-gray-500">{coin.symbol}</td>
                     <td className="whitespace-nowrap px-3 py-2 text-xl text-gray-500">${coin.quote.USD.price.toFixed(5)}</td>
                     <td className="whitespace-nowrap px-3 py-2 text-xl text-gray-500">
-                      {coin.circulating_supply.toLocaleString()} {/* Format the number with commas */}
+                      {coin.total_supply.toLocaleString()} {/* Format the number with commas */}
                     </td>
                   <td className="whitespace-nowrap px-3 py-2 text-xl text-gray-500">
                     ${coin.quote.USD.volume_24h.toLocaleString()} {/* Format the number with commas */}
